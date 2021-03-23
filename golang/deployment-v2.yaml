@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: golang-deployment
+  namespace: demo1
+  labels:
+    app: http-service
+    version: v2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: http-service
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: http-service
+        version: v2
+    spec:
+      containers:
+      - name: main
+        image: footprintai/k8sworkshop:golang-demo
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080

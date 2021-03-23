@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: static-html-deployment
+  namespace: demo1
+  labels:
+    app: http-service
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: http-service
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: http-service
+        version: v1
+    spec:
+      containers:
+      - name: main
+        image: footprintai/k8sworkshop:static-html-demo
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
