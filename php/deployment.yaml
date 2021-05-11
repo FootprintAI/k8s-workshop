@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-deployment
+  namespace: demo1
+  labels:
+    app: http-service
+    version: v3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: http-service
+      version: v3
+  template:
+    metadata:
+      labels:
+        app: http-service
+        version: v3
+    spec:
+      containers:
+      - name: main
+        image: footprintai/k8sworkshop:php-demo
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
