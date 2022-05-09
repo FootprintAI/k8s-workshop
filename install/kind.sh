@@ -11,3 +11,6 @@ curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.12.0/kind-linux-amd64 && \
 
 # 3. create kind cluster with static config file
 kind create cluster --config kind-config.yaml
+
+# 4. create ingress controller
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml

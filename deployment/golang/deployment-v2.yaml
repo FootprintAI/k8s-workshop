@@ -28,4 +28,4 @@ spec:
         image: footprintai/k8sworkshop:golang-demo
         imagePullPolicy: IfNotPresent
         ports:
-          - containerPort: 8080
+        - containerPort: 8080
